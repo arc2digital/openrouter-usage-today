@@ -1,0 +1,9 @@
+.vscode/**
+src/**
+*.ts
+*.tsbuildinfo
+yarnrc.yml
+npm-debug.*
+*.vsix
+.agents/
+plans/

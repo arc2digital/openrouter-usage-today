@@ -1,0 +1,81 @@
+{
+  "name": "openrouter-usage-today",
+  "icon": "media/icon.png",
+  "displayName": "OpenRouter Usage Today",
+  "description": "Daily OpenRouter usage cost by key",
+  "version": "1.0.0",
+  "publisher": "Arc2",
+  "repository": {
+    "url": "https://www.arc2.co.uk"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "OpenRouter Usage Today",
+      "properties": {
+        "openrouterUsageToday.managementKey": {
+          "type": "string",
+          "description": "Your OpenRouter Management API key (stored locally only)",
+          "default": "",
+          "markdownDescription": "Create a management key at [OpenRouter Settings](https://openrouter.ai/settings/management-keys). This key is stored only in VSCode settings and never leaves your machine."
+        },
+        "openrouterUsageToday.selectedKeyHash": {
+          "type": "string",
+          "description": "The hash of the API key to track",
+          "default": ""
+        },
+        "openrouterUsageToday.pollThreshold": {
+          "type": "string",
+          "description": "How often to poll for usage updates",
+          "default": "10s",
+          "enum": [
+            "10s",
+            "20s",
+            "30s",
+            "1m",
+            "5m",
+            "10m",
+            "15m",
+            "30m",
+            "1h"
+          ],
+          "enumDescriptions": [
+            "10 seconds",
+            "20 seconds",
+            "30 seconds",
+            "1 minute",
+            "5 minutes",
+            "10 minutes",
+            "15 minutes",
+            "30 minutes",
+            "1 hour"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/node-fetch": "^2.6.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.9"
+  }
+}
